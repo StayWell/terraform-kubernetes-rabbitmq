@@ -55,3 +55,7 @@ variable "service_headless" {
 variable "secret_name" {
   default = "rabbitmq-credentials"
 }
+
+variable "volume_size" {
+  default = "1Gi"
+}

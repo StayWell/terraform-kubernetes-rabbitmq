@@ -290,7 +290,7 @@ resource "kubernetes_stateful_set" "this" {
 
         resources {
           requests = {
-            storage = "1Gi"
+            storage = var.volume_size
           }
         }
       }
