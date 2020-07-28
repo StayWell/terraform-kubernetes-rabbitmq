@@ -53,7 +53,7 @@ resource "kubernetes_service" "this" {
 
 resource "kubernetes_service" "this-headless" {
   metadata {
-    name      = "rabbitmq-headless"
+    name      = var.service_headless
     namespace = kubernetes_namespace.this.metadata[0].name
 
     labels = {
@@ -131,7 +131,7 @@ resource "kubernetes_secret" "this-cookie" {
 
 resource "kubernetes_secret" "this" {
   metadata {
-    name      = "rabbitmq-credentials"
+    name      = var.secret_name
     namespace = kubernetes_namespace.this.metadata[0].name
   }
 
@@ -170,7 +170,7 @@ resource "kubernetes_stateful_set" "this" {
           name = "conf"
 
           config_map {
-            name = "rabbitmq"
+            name = var.name
 
             items {
               key  = "rabbitmq.conf"

@@ -47,3 +47,11 @@ variable "resources" {
     }
   }
 }
+
+variable "service_headless" {
+  default = "rabbitmq-headleass"
+}
+
+variable "secret_name" {
+  default = "rabbitmq-credentials"
+}
